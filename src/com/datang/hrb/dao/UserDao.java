@@ -21,8 +21,9 @@ public class UserDao {
 		Connection conn = ConnectionUtil.getConnection();
 		PreparedStatement ps=null;
 		User user = null;
-		try {
-			ps = conn.prepareStatement("select * from user where username=?");
+		try {//huwenfei----'h';drop table user;'
+			ps = conn.prepareStatement("select * from user where username=?");//select * from user where username='huwenfei'
+			//select * from user where username='h';drop table user;''
 			ps.setString(1, username);
 			ResultSet rs = ps.executeQuery();
 			if(rs.next()) {//有数据
@@ -31,8 +32,14 @@ public class UserDao {
 				user.setPassword(rs.getString(2));
 				user.setAge(rs.getInt(3));
 				user.setTs(rs.getDate(4));
+//				if(dbpassword.equals(password)) {
+//					resp.sendRedirect("login_success.jsp");
+//				}else {
+//					resp.sendRedirect("login_fail.jsp");
+//				}
 			}
 		} catch (SQLException e) {
+//			resp.sendRedirect("login_fail.jsp");
 			e.printStackTrace();
 		}finally {
 			if(ps!=null) {
@@ -63,6 +70,7 @@ public class UserDao {
 				userList.add(user);
 			}
 		} catch (SQLException e) {
+//			resp.sendRedirect("login_fail.jsp");
 			e.printStackTrace();
 		}finally {
 			if(ps!=null) {
@@ -88,6 +96,7 @@ public class UserDao {
 			ps.setString(3, user.getPhone());
 			result = ps.executeUpdate();
 		} catch (SQLException e) {
+//			resp.sendRedirect("login_fail.jsp");
 			e.printStackTrace();
 		}finally {
 			if(ps!=null) {

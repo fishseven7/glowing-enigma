@@ -142,15 +142,13 @@ body{
    </div>
    <div class="main">
    		<a href="student_list.jsp">返回学生列表页</a>
-   		<form>
-   			<span>学员学号：</span> <input type="text" /><br />
-   			<span>姓名：</span> <input type="text" /><br />
-   			<span>性别：</span> <input type="text" /><br />
-   			<span>班级名称：</span> <input type="text" /><br />
-   			<span>专业名称：</span> <input type="text" /><br />
-   			<span>学校名称：</span> <input type="text" /><br />
-   			<span>邮箱：</span> <input type="text" /><br />
-   			<span>手机号：</span> <input type="text" /><br />
+   		<form action="addStu.do" method="post">
+   			<span>学员学号：</span> <input name="code" type="text" /><br />
+   			<span>姓名：</span> <input name="name" type="text" /><br />
+   			<span>性别：</span> <input type="text" name="gender" /><br />
+   			<span>班级id：</span> <input type="text" name="classid" /><br />
+   			<span>邮箱：</span> <input type="text" name="email" /><br />
+   			<span>手机号：</span> <input type="text" name="phone"/><br />
    			<input class="save" type="submit" value="保存" />
    		</form>
    </div>

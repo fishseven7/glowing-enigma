@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="com.datang.hrb.vo.*" %>
+    <%@ page import="com.datang.hrb.vo.Class" %>
+    <%@ page import="java.util.*" %>
+    <%
+    List<Class> classList = (ArrayList<Class>)session.getAttribute("classList");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -211,12 +217,14 @@ body{
    				</tr>
    			</thead>
    			<tbody>
-   			<%for(int i = 0; i<20; i++){ %>
+   			<%for(int i = 0; i<classList.size(); i++){ 
+   				Class tempClass = classList.get(i);
+   			%>
    				<tr>
-   					<td class="classname">大数据XXX班</td>
-   					<td class="schoolname">XXXX大学</td>
-   					<td class="majorname">XXXX专业</td>
-   					<td>56</td>
+   					<td class="classname"><%=tempClass.getName() %></td>
+   					<td class="schoolname"><%=tempClass.getSchool() %></td>
+   					<td class="majorname"><%=tempClass.getProfession() %></td>
+   					<td>30</td>
    					<td class="operation">
    						<button class="redact"><a href="redact_class.jsp">编辑</a></button>
    						<button class="del">删除</button>

@@ -15,7 +15,8 @@
 <body>
 登录成功
 <p>你好！<%=user.getUsername() %></p>
-
+<a href="student_list.jsp">学生信息管理</a><br>
+<a href="class_list.jsp">班级信息管理</a><br>
 <table border=1 >
 	<tr><td>用户名</td><td>密码</td><td>年龄</td><td>时间戳</td></tr>
 	<%

@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+     <%@ page import="com.datang.hrb.vo.*" %>
+    <%@ page import="java.util.*" %>
+    <%
+    List<Student> studentList = (ArrayList<Student>)session.getAttribute("studentList");
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -212,16 +218,18 @@ body{
    				</tr>
    			</thead>
    			<tbody>
-   			<%for(int i = 0; i<20; i++){ %>
+   			<%for(int i = 0; i<studentList.size(); i++){ 
+   				Student tempStudent = studentList.get(i);
+   			%>
    				<tr>
-   					<td>2017053285</td>
-   					<td>王二毛</td>
-   					<td class="gender">男</td>
-   					<td>大数据xxxx班</td>
-   					<td>大数据</td>
-   					<td class="school-name">学校名称</td>
-   					<td class="email">123456@123.com</td>
-   					<td>12345678910</td>
+   					<td><%=tempStudent.getCode() %></td>
+   					<td><%=tempStudent.getName() %></td>
+   					<td class="gender"><%=tempStudent.getGender() %></td>
+   					<td><%=tempStudent.getClassName() %></td>
+   					<td><%=tempStudent.getProfession() %></td>
+   					<td class="school-name"><%=tempStudent.getSchool() %></td>
+   					<td class="email"><%=tempStudent.getEmail() %></td>
+   					<td><%=tempStudent.getPhone() %></td>
    					<td>
    						<button class="redact"><a href="redact_stu.jsp">编辑</a></button>
    						<button class="del">删除</button>

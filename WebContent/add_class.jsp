@@ -142,10 +142,10 @@ body{
    </div>
    <div class="main">
    		<a href="class_list.jsp">返回班级列表页</a>
-   		<form>
-   			<span>班级名称：</span> <input type="text" /><br />
-   			<span>所属院校：</span> <input type="text" /><br />
-   			<span>所属专业：</span> <input type="text" /><br />
+   		<form method="post" action="addClass.do">
+   			<span>班级名称：</span> <input type="text" name="name" /><br />
+   			<span>所属院校：</span> <input type="text" name="school"/><br />
+   			<span>所属专业：</span> <input type="text" name="profession"/><br />
    			<input class="save" type="submit" value="保存" />
    		</form>
    </div>
